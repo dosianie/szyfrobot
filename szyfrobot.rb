@@ -2,7 +2,10 @@ require './rot13'
 polecenie = ""
 zaladowano_tekst = false
 tekst = ""
- until polecenie == "QUIT"
+def juz_koniec?(polecenie)
+  polecenie == "QUIT"
+end
+ until juz_koniec?(polecenie)
  	polecenie, *parametry = gets.chomp.split(" ")
  	if polecenie == "LOAD"
  		File.open(parametry[0], 'r') do |plik|
